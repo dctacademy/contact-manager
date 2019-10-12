@@ -6,7 +6,7 @@ const router = require('./config/routes')
 // const { usersRouter } = require('./app/controllers/UsersController')
 
 const app = express() 
-const port = 3000 
+const port = 3010 
 
 app.use(express.json())
 app.use(morgan(':method :url :status :remote-addr :status :user-agent :date'))
