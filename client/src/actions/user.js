@@ -8,6 +8,24 @@ export const setUser = (user) => {
 }
 
 // async 
+// handle page reloads
+export const startGetUser = () => {
+    return (dispatch) => {
+        axios.get('/users/account', {
+            headers: {
+                'x-auth': localStorage.getItem('token')
+            }
+        })
+            .then(response => {
+                const user = response.data
+                dispatch(setUser(user))
+            })
+    }
+    
+}
+
+
+// handle form submission
 export const startSetUser = (formData) => {
     return (dispatch) => {
         axios.post('/users/login', formData)

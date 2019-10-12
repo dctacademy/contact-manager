@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
+import { startGetUser } from './actions/user'
 import App from './App';
 
 import configureStore from './store/configureStore'
@@ -11,6 +12,10 @@ console.log(store.getState())
 store.subscribe(() => {
     console.log(store.getState())
 })
+
+if(localStorage.getItem('token')) {
+    store.dispatch(startGetUser())
+}
 
 const ele = (
     <Provider store={store}>

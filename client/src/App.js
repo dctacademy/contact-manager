@@ -20,6 +20,7 @@ function App(props) {
               </div> 
              ) : ( 
                <div>
+                  <Link to="/contacts">Contacts</Link>
                   <Link to="/users/account">Account</Link>
                   <Link to="/users/logout">Logout</Link>
                </div>
