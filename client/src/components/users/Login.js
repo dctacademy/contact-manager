@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { startSetUser } from '../../actions/user'
 
 class Login extends React.Component {
     constructor() {
@@ -20,8 +22,8 @@ class Login extends React.Component {
         const formData = {
             email: this.state.email,
             password: this.state.password
-        }
-        console.log(formData)
+        }       
+        this.props.dispatch(startSetUser(formData)) 
     }
 
     render() {
@@ -46,4 +48,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login
+export default connect()(Login)

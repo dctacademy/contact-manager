@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev-server": "nodemon index.js",
-    "dev" : "concurrently \"nodemon index.js\" \"cd client && npm start\""
+    "dev": "concurrently \"nodemon index.js\" \"cd client && npm start\""
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.0.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.0",
     "lodash": "^4.17.15",

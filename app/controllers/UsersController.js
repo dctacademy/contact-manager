@@ -18,12 +18,22 @@ module.exports.register = function (req, res) {
 
 module.exports.login = function (req, res) {
     const body = req.body
+    let userInfo 
     User.findByCredentials(body.email, body.password)
         .then(function (user) {
+            userInfo = user 
             return user.generateToken()
         })
         .then(function (token) {
-            res.setHeader('x-auth', token).send({})
+            // res.setHeader('x-auth', token).send({})
+            res.json({
+                token,
+                user: {
+                    _id: userInfo.id,
+                    username: userInfo.username,
+                    email: userInfo.email
+                }
+            })
         })
         .catch(function (err) {
             res.send(err)
@@ -32,7 +42,7 @@ module.exports.login = function (req, res) {
 
 module.exports.account = function (req, res) {
     const { user } = req
-    res.send(user)
+    res.send(pick(user, ['_id', 'username', 'email']))
 }
 
 module.exports.logout = function (req, res) {
