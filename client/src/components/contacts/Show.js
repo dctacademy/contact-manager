@@ -2,10 +2,17 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 function ContactShow(props) {
-    const { name, email, mobile} = props.contact
     return (
         <div>
-            <h1>{name} {email} {mobile}</h1>
+        { props.contact ? (
+            <div>
+                <h1>{props.contact.name} {props.contact.email} {props.contact.mobile}</h1>
+            </div>
+        ) : (
+            <div>
+                loading...
+            </div>
+        ) }
         </div>
     )
 }
