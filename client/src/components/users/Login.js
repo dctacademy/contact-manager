@@ -23,7 +23,8 @@ class Login extends React.Component {
             email: this.state.email,
             password: this.state.password
         }       
-        this.props.dispatch(startSetUser(formData)) 
+        this.props.dispatch(startSetUser(formData, this.props)) 
+        
     }
 
     render() {

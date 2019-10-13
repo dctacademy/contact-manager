@@ -13,6 +13,7 @@ store.subscribe(() => {
     console.log(store.getState())
 })
 
+// handle page reloads
 if(localStorage.getItem('token')) {
     store.dispatch(startGetUser())
 }

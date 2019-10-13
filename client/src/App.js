@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import Home from './components/Home'
 import Register from './components/users/Register'
 import Login from './components/users/Login'
+import ContactsList from './components/contacts/List'
 
 function App(props) {
   return (
@@ -27,9 +28,12 @@ function App(props) {
              ) 
           }
 
+          
           <Route path="/" component={Home} exact={true} />
           <Route path="/users/register" component={Register} />
           <Route path="/users/login" component={Login} />
+
+          <Route path="/contacts" component={ContactsList} />
       </div>
     </BrowserRouter>
   );
