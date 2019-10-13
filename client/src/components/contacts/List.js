@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import ContactForm from './Form'
+
 function ContactList(props){ 
     return (
         <div>
@@ -11,6 +13,8 @@ function ContactList(props){
                     return <li key={contact._id}><Link to={`/contacts/${contact._id}`}>{contact.name}</Link></li>
                 })}
             </ul>
+
+            <ContactForm />
         </div>
     )
 }
