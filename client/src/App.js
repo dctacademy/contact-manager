@@ -7,6 +7,7 @@ import Home from './components/Home'
 import Register from './components/users/Register'
 import Login from './components/users/Login'
 import ContactsList from './components/contacts/List'
+import ContactShow from './components/contacts/Show'
 
 function App(props) {
   return (
@@ -33,7 +34,8 @@ function App(props) {
           <Route path="/users/register" component={Register} />
           <Route path="/users/login" component={Login} />
 
-          <Route path="/contacts" component={ContactsList} />
+          <Route path="/contacts" component={ContactsList} exact={true} />
+          <Route path="/contacts/:id" component={ContactShow} />
       </div>
     </BrowserRouter>
   );
