@@ -1,4 +1,5 @@
 import axios from '../config/axios'
+import { setErrors, clearErrors } from './formErrors'
 // sync 
 
 export const setContacts = (contacts) => {
@@ -27,10 +28,13 @@ export const startAddContact = (formData) => {
             // const contact = response.data 
             console.log(response.data)
             if(response.data.hasOwnProperty('errors')) {
-                alert(response.data.message)
+                // alert(response.data.message)
+                // console.log(response.data)
+                dispatch(setErrors(response.data.errors))
             } else {
                 const contact = response.data  
                 dispatch(addContact(contact))
+                dispatch(clearErrors())
             }
         })
     }
